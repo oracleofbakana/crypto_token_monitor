@@ -10,26 +10,26 @@ class SectionRows extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: <Widget>[
-        Text(
-          sectionName,
-          style: TextStyle(
-            fontSize: 24.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
+    crossAxisAlignment: CrossAxisAlignment.start,
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children: <Widget>[
+      Text(
+        sectionName,
+        style: TextStyle(
+          fontSize: 24.0,
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
         ),
-        SizedBox(width: width),
-        //_width * 0.68
-        InkWell(
-          child: Text('See All'),
-          onTap: () {
-            Navigator.pushNamed(context, route);
-          },
-        ),
-      ],
+      ),
+      SizedBox(width: width),
+      //_width * 0.68
+      InkWell(
+        child: Text('See All'),
+        onTap: () {
+          Navigator.pushNamed(context, route);
+        },
+      ),
+    ],
     );
   }
 }

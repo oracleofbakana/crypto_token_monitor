@@ -1,5 +1,7 @@
+import 'package:crypto_monitor/screens/discover.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:crypto_monitor/screens/watchlist.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({
@@ -31,12 +33,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
       currentIndex: _selectedIndex,
       selectedItemColor: Color(0xff12326b),
       unselectedItemColor: Color(0xff94a3c1),
-      showUnselectedLabels: true,
+
       unselectedLabelStyle: TextStyle(
         color: Color(0xff12326b),
       ),
       selectedFontSize: 14.0,
       unselectedFontSize: 14.0,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
       //type: BottomNavigationBarType.fixed,
       iconSize: 22.0,
       items: <BottomNavigationBarItem>[
@@ -57,16 +61,20 @@ class _BottomNavBarState extends State<BottomNavBar> {
         BottomNavigationBarItem(
           icon: IconButton(
             icon: Icon(FontAwesomeIcons.chartPie),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, WatchlistScreen.id);
+            },
           ),
-          label: 'Wallet',
+          label: 'Portfolio',
         ),
         BottomNavigationBarItem(
           icon: IconButton(
             icon: Icon(FontAwesomeIcons.compass),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, DiscoverNewsPage.id);
+            },
           ),
-          label: 'Portfolio',
+          label: '',
         ),
         BottomNavigationBarItem(
           icon: IconButton(

@@ -1,19 +1,33 @@
 import 'package:flutter/material.dart';
+// import 'package:crypto_monitor/services/feed_reader.dart';
 
-class NewsCard extends StatelessWidget {
+class NewsCard extends StatefulWidget {
+  final String title;
+  final String author;
+  final String source;
+  //final String description;
+  final String url;
+  final String publishedDate;
+
+  NewsCard({this.title, this.source, this.author, this.url, this.publishedDate});
+
+  @override
+  _NewsCardState createState() => _NewsCardState();
+}
+
+class _NewsCardState extends State<NewsCard> {
 
 
   @override
   Widget build(BuildContext context) {
     final double _width = MediaQuery.of(context).size.width;
     final double _height = MediaQuery.of(context).size.height;
-
-
     return Container(
       height: _height * 0.12,
       width: _width * 0.95,
+      //margin: EdgeInsets.only(bottom: 10.0),
       color: Colors.white,
-      margin: EdgeInsets.only(left: 3.0, top: 10.0, right: 5.0, bottom: 3.0),
+      margin: EdgeInsets.only(left: 3.0, top: 10.0, right: 5.0, bottom: 10.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -35,28 +49,27 @@ class NewsCard extends StatelessWidget {
               Container(
                 height: _height * 0.07,
                 width:  _width * 0.70,
-                margin: EdgeInsets.only(top: 10.0),
+                margin: EdgeInsets.only(top: 10.0,bottom: 10.0),
                 child: Row(
                   children: [
                     Flexible(
-
-                      child: Text('Bitcoin Price Just Broke through \$60\,500 Setting All\-Time High Setting All\-Time High Setting All\-Time High',
+                      child: Text(widget.title,
                       overflow: TextOverflow.clip,
                       softWrap: true,
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          fontSize: 18.0,
+                          fontSize: 15.0,
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 10.0),
+              SizedBox(height: _height * 0.005),
               Container(
-                child: Text('Coin Desk'),
-                height: 20.0,
-                width:  300.0,
+                child: Text(widget.source),
+                height: _height * 0.015,
+                width:  _width * 0.70,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(5.0),
                   ),
